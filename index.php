@@ -1,5 +1,8 @@
 <?php
 
+use core\base\controller\RouteController;
+use core\base\exceptions\RouteException;
+
 define('VG_ACCESS', true);
 
 
@@ -9,4 +12,8 @@ session_start();
 require_once 'config.php';
 require_once 'core/base/settings/internal_settings.php';
 
-echo 'hello';
+try {
+    RouteController::getInstance();
+} catch (RouteException $e) {
+    exit($e->getMessage());
+}
