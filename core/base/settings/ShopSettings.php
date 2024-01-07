@@ -8,6 +8,18 @@ class ShopSettings
     static private $_instance;
     private $baseSettings;
 
+    private $routes
+        = [
+            'plugins' => [
+                'path'   => 'core/plugins/',
+                'hrUrl'  => false,
+                'dir'    => 'controller',
+                'routes' => [
+
+                ]
+            ],
+        ];
+
     private $templateArr
         = [
             'text'     => ['name', 'phone', 'address', 'price', 'short'],
