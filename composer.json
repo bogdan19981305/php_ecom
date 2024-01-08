@@ -1,0 +1,23 @@
+{
+    "name": "bogdan/ecom",
+    "type": "project",
+    "authors": [
+        {
+            "name": "bogdan",
+            "email": "litvinenkob16@gmail.com"
+        }
+    ],
+    "require": {
+      "php": "^8.2"
+    },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/",
+      "App\\Kernel\\": "kernel/"
+    }
+  },
+    "require-dev": {
+        "symfony/var-dumper": "^5.4",
+        "laravel/pint": "^1.13"
+    }
+}
