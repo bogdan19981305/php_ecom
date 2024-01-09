@@ -12,17 +12,18 @@ use App\Kernel\View\View;
 <?php
 
 $view->getHeader() ?>
-    <h1>Movie add Page</h1>
+    <h1 class="text-center">Movie add Page</h1>
+    <div class="container">
+        <form method="post" action="/admin/movies/add">
+            <div class="mb-3">
+                <label for="name" class="form-label">Movie
+                    name</label>
+                <input type="text" class="form-control" id="name" name="name"
+                       aria-describedby="emailHelp">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
 
-    <form method="post" action="">
-        <div>
-            <label aria-label="name">
-                <input name="name" type="text"/>
-            </label>
-        </div>
-        <div>
-            <input type="submit"/>
-        </div>
-    </form>
 <?php
 $view->getFooter() ?>

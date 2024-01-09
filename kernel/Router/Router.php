@@ -3,6 +3,7 @@
 namespace App\Kernel\Router;
 
 use App\Kernel\Controller\Controller;
+use App\Kernel\Http\Request;
 use App\Kernel\View\View;
 
 class Router
@@ -15,7 +16,8 @@ class Router
         ];
 
     public function __construct(
-        private View $view
+        private View $view,
+        private Request $request
     ) {
         $this->initRoutes();
     }
@@ -49,6 +51,7 @@ class Router
             $controller = new $controller();
 
             call_user_func([$controller, 'setView'], $this->view);
+            call_user_func([$controller, 'setRequest'], $this->request);
             call_user_func([$controller, $action]);
         }
     }
@@ -57,13 +60,11 @@ class Router
     {
         $routes = $this->getRoutes();
 
-        $parsed_uri = str_replace('/', '', $uri);
-
-        if (!isset($routes[$method][$parsed_uri])) {
+        if (!isset($routes[$method][$uri])) {
             return false;
         }
 
-        return $routes[$method][$parsed_uri];
+        return $routes[$method][$uri];
     }
 
     /**

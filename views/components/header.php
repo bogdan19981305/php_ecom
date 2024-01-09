@@ -4,8 +4,9 @@
  */
 
 
-$isActiveHome = $uri === 'home' ? 'active' : '';
-$isActiveMovies = $uri === 'movies' ? 'active' : ''
+$isActiveHome = $uri === '/home' ? 'active' : '';
+$isActiveMovies = $uri === '/movies' ? 'active' : '';
+$isAddMovie = $uri === '/admin/movies/add' ? 'active' : '';
 ?>
 
 <!doctype html>
@@ -25,10 +26,13 @@ $isActiveMovies = $uri === 'movies' ? 'active' : ''
     <header class="d-flex justify-content-center py-3">
         <ul class="nav nav-pills">
             <li class="nav-item"><a href="/home" class="nav-link <?php
-                echo $isActiveHome ?>"
-                                    aria-current="page">Home</a></li>
+                echo $isActiveHome ?>" aria-current="page">Home</a></li>
             <li class="nav-item"><a href="/movies" class="nav-link <?php
                 echo $isActiveMovies ?>">Movies</a>
+            </li>
+            <li class="nav-item"><a href="/admin/movies/add"
+                                    class="nav-link <?php
+                                    echo $isAddMovie ?>">Add Movie</a>
             </li>
         </ul>
     </header>
