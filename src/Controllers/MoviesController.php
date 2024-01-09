@@ -2,15 +2,18 @@
 
 namespace App\Controllers;
 
-use App\Kernel\View\View;
+use App\Kernel\Controller\Controller;
 
-class MoviesController
+class MoviesController extends Controller
 {
 
-    public function index()
+    public function index(): void
     {
-        $view = new View();
+        $this->view('movies');
+    }
 
-        $view->page('movies');
+    public function add(): void
+    {
+        $this->view('admin/movies/add');
     }
 }
